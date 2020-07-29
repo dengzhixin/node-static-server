@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>黑客的网站</title>
+</head>
+<body>
+    这是黑客的网站
+    123
+    <script>
+
+        let script = document.createElement('script')
+        script.src="http://qq.com:8888/friends.js?callback=myCallback"
+        document.body.appendChild(script)
+        script.onload=()=>{
+            script.remove()
+        }
+        function myCallback(data) {
+            let dom = document.createElement('p')
+            dom.innerText =JSON.stringify(data)
+            console.log(data)
+            document.body.appendChild(dom)
+        }
+       /* const request = new XMLHttpRequest();
+        request.open('GET','http://qq.com:8888/friends.json')
+        request.onreadystatechange=()=>{
+            if(request.readyState===4 && request.status===200){
+                let response = request.response
+                let dom = document.createElement('p')
+                dom.innerText = response.toString()
+                document.body.appendChild(dom)
+            }
+        }
+        request.send()*/
+    </script>
+</body>
+</html>
